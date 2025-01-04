@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import theme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,6 +19,15 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                theme:"radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(250,46,88,1) 100%)"
+            },
+            borderColor: {
+                theme:"#C20E0E"
+            },
+            textColor: {
+                theme:"#C20E0E"
+            }
         },
     },
 
