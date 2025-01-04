@@ -22,13 +22,18 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+
+
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -60,6 +65,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                    <x-flash-message></x-flash-message>
                     @yield('content')
                 </div><!-- /.container-fluid -->
             </section>
@@ -86,13 +92,25 @@
     <!-- overlayScrollbars -->
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 
-    <!-- AdminLTE App -->
-    <script src="{{ asset('js/adminlte.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-
     <!-- Laravel Javascript Validation -->
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
 
+    <!-- Toastr -->
+    <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+
+    <!-- AdminLTE App -->
+    <script src="{{ asset('js/adminlte.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            @if (session('success'))
+                toastr.success("{{ session('success') }}");
+            @endif
+            @if (session('error'))
+                toastr.error("{{ session('error') }}");
+            @endif
+        })
+    </script>
 
     @stack('scripts')
 </body>

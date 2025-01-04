@@ -20,7 +20,7 @@
         <div class="tw-flex tw-justify-center tw-items-center tw-bg-theme">
             <img src="{{ asset('image/dashboard.png') }}" alt="" class="tw-w-4/12">
         </div>
-        <p class="text-center tw-text-grays">Welcome to {{ config('app.name') }}</p>
+        <p class="text-center">Welcome to {{ config('app.name') }}</p>
     </x-card>
 
 @endsection
