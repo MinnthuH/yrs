@@ -20,12 +20,11 @@
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                   <div class="dropdown-divider"></div>
                   <a href="{{ route('profile.edit') }}" class="dropdown-item">
-                      <i class="fas fa-user-edit mr-2"></i>
-                      <span class="float-right text-muted text-sm">Edit Profile</span>
+                      <i class="fas fa-user-edit mr-2"></i>Edit Profile
                   </a>
+                  <div class="dropdown-divider"></div>
                   <a href="{{ route('change-password.edit') }}" class="dropdown-item">
-                      <i class="fas fa-lock mr-2"></i>
-                      <span class="float-right text-muted text-sm">Change Password</span>
+                      <i class="fas fa-lock mr-2"></i>Change Password
                   </a>
                   <div class="dropdown-divider"></div>
 
@@ -34,8 +33,7 @@
                       <a class="dropdown-item" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                          <i class="fas fa-sign-out-alt mr-2"></i>
-                          <span class="float-right text-muted text-sm">Logout</span>
+                          <i class="fas fa-sign-out-alt mr-2"></i>Logout
                       </a>
 
                   </form>
