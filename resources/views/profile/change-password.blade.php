@@ -18,7 +18,7 @@
 
     <x-card>
 
-        <form method="post" action="{{ route('change-password.update') }}">
+        <form method="post" action="{{ route('change-password.update') }}" id="submit-form">
             @csrf
             @method('put')
 
@@ -56,3 +56,7 @@
     </x-card>
 
 @endsection
+
+@push('scripts')
+    {!! JsValidator::formRequest('App\Http\Requests\ChangePasswordRequest', '#submit-form') !!}
+@endpush
