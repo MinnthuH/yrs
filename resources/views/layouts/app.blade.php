@@ -32,6 +32,9 @@
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
 
+    <!-- Datables -->
+    <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.min.css') }}">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
@@ -98,11 +101,22 @@
     <!-- Toastr -->
     <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 
+    <!-- Datable -->
+    <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
+
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.js') }}"></script>
 
     <script>
         $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
+                },
+                error: function(res, status, error) {
+                    toastr.error(res.responseJSON.message);
+                }
+            })
             @if (session('success'))
                 toastr.success("{{ session('success') }}");
             @endif

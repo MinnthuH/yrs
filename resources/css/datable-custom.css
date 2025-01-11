@@ -1,0 +1,27 @@
+table.dataTable thead th{
+    font-size: 15px;
+    padding-top:6px;
+    padding-bottom: 6px;
+    background: #cb3516;
+}
+table.dataTable tbody td{
+    font-size: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.dt-container .dt-length{
+    font-size: 15px;
+}
+.dt-container .dt-info {
+    font-size: 15px;
+}
+.dt-container .dt-search {
+    font-size: 15px;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color:#cb3516 ;
+    border-color: #C20E0E;
+}

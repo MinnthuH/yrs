@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\PasswordController;
 
@@ -32,4 +33,8 @@ Route::middleware('auth:admin_users')->group(function () {
 
 Route::middleware(['auth:admin_users', 'verified'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); // Admin Dashboard
+
+    Route::resource('admin-user', AdminUserController::class);
+
+    Route::get('admin-user-datatable', [AdminUserController::class, 'datatable'])->name('admin-user-datable'); // Admin User Datatable
 });

@@ -17,7 +17,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
                 theme:"radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(250,46,88,1) 100%)"
