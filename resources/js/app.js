@@ -11,8 +11,8 @@ window.deleteDialog = Swal.mixin({
     confirmButton: "btn btn-danger",
     cancelButton: "btn btn-secondary m-2"
     },
-     title: 'Error!',
-                        text: 'Do you want to continue',
+     title: 'Are you sure, you want to delete?',
+
                         icon: 'error',
     reverseButtons: true,
     showCancelButton: true,

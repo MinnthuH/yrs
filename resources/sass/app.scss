@@ -1,7 +1,11 @@
+
+
+// Replace @import with @use
+@use 'sweetalert2/src/sweetalert2' as *;
+@use '../css/datable-custom' as *;
+@use '../css/sweetalert2-custom' as *;
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-@import 'sweetalert2/src/sweetalert2.scss';
-@import '../css/datable-custom.css';
