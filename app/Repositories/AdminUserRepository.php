@@ -52,6 +52,9 @@ class AdminUserRepository implements BaseRepository
         $model = AdminUser::query();
 
         return DataTables::eloquent($model)
+            ->editColumn('email_verified_at', function ($admin_user) {
+                return $admin_user->email_verified_at ? Carbon::parse($admin_user->email_verified_at)->format('Y-m-d H:i:s') : '-';
+            })
             ->editColumn('created_at', function ($admin_user) {
                 return Carbon::parse($admin_user->created_at)->format('Y-m-d H:i:s');
             })

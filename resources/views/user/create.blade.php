@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Crate Admin User')
-@section('admin-user-page-active', 'active')
+@section('title', 'Crate User')
+@section('user-page-active', 'active')
 
 @section('header')
     <div class="tw-flex tw-justify-between tw-items-center">
         <div class="tw-flex tw-justify-between tw-items-center">
             <i class="fas fa-user tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-            <h5 class="tw-text-lg tw-mb-0">Create Admin User</h5>
+            <h5 class="tw-text-lg tw-mb-0">Create User</h5>
         </div>
         <div class=""></div>
 
@@ -19,7 +19,7 @@
     <x-card class="tw-mb-5">
 
 
-        <form method="post" action="{{ route('admin-user.store') }}" class="" id="submit-form">
+        <form method="post" action="{{ route('user.store') }}" class="" id="submit-form">
             @csrf
 
 
@@ -44,7 +44,7 @@
             </div>
 
             <div class="tw-flex tw-justify-center tw-items-center tw-gap-4 tw-mt-5">
-                <x-cancel-button href="{{ route('admin-user.index') }}">Cancel</x-cancel-button>
+                <x-cancel-button href="{{ route('user.index') }}">Cancel</x-cancel-button>
                 <x-confirm-button>Confirm</x-confirm-button>
 
                 @if (session('status') === 'profile-updated')
@@ -62,5 +62,5 @@
 @endsection
 
 @push('scripts')
-    {!! JsValidator::formRequest('App\Http\Requests\AdminUserStoreRequest', '#submit-form') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\UserStoreRequest', '#submit-form') !!}
 @endpush
