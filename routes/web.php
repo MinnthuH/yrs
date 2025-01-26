@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\TicketInspectorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +42,7 @@ Route::middleware(['auth:admin_users', 'verified'])->group(function () {
 
     Route::resource('user', UserController::class);
     Route::get('user-datatable', [UserController::class, 'datatable'])->name('user-datable'); // Admin User Datatable
+
+    Route::resource('ticket-inspector', TicketInspectorController::class);
+    Route::get('ticket-inspector-datable', [TicketInspectorController::class, 'datatable'])->name('ticket-inspector-datable'); //TicketInspector Datable
 });
