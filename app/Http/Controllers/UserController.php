@@ -7,23 +7,26 @@ use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\ResponseService;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
-use Yajra\DataTables\Facades\DataTables;
+use App\Repositories\WalletRepository;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Redirect;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
     protected $userRepository;
-
-    public function __construct(UserRepository $userRepository)
+    protected $walletRepository;
+    
+    public function __construct(UserRepository $userRepository, WalletRepository $walletRepository)
     {
         $this->userRepository = $userRepository;
+        $this->walletRepository = $walletRepository;
     }
 
-    //  User List Metho
+    //  User List Method
     public function index()
     {
         return view('user.index');
@@ -47,11 +50,20 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         try {
-            $this->userRepository->create([
+            $user = $this->userRepository->create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+
+            $this->walletRepository->firstOrCreate(
+            [
+                'user_id' => $user->id,
+            ],
+            [
+                'amount' => 0,
+            ]
+        );
 
             return Redirect::route('user.index')->with('success', 'User Create Successfully');
         } catch (Exception $e) {
